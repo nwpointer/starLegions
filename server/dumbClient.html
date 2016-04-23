@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>client</h1>	
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	  var socket = io();
+	  socket.on('response', function(data){
+		console.log(data)
+	  })
+
+	  function sendAction(type, data){
+	  	socket.emit('action', JSON.stringify({
+	  		action:type,
+	  		data: data
+	  	}));
+	  }
+
+	  var testaction = function(){
+	  	sendAction('attack', {
+	  		  	str: 5
+	  	})
+	  }
+
+	</script>
+	<button onclick="testaction()">attack</button>
+</body>
+</html>
