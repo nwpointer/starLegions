@@ -78,14 +78,14 @@ textarea:focus, input:focus{
 
   .left-column {
     padding: $sm-size;
-    flex: 1 20%;
+    flex: 1 10%;
   }
 
   .main-body {
     background-color: $dark-black;
     margin-left: 2.5%;
     padding: $sm-size;
-    flex: 1 70%;
+    flex: 1 80%;
 
 
     input {
@@ -98,6 +98,12 @@ textarea:focus, input:focus{
       padding: $xx-sm-size;
     }
   }
+}
+
+.terminal {
+  overflow: scroll;
+  height: 80vh;
+  border-bottom: 1px solid lighten($thick-teal, 10%);
 }
 
 .menu {
