@@ -1,15 +1,65 @@
+@import "~bourbon/app/assets/stylesheets/_bourbon";
+
+$modular-scale-ratio: $golden;
+$modular-scale-base: 1.2em;
+
 /* Variables */
-$vin-blue: #5bb7db;
-$vin-green: #60b044;
-$vin-red: #ff0000;
+
+$dark-black: #000B17;
+$lighter-black: #001329;
+$thick-teal: #00293F;
+$green: #448668;
+$highlight: #F7B565;
+$red: #D0150B;
+
+$xxx-sm-size: modular-scale(-2);
+$xx-sm-size: modular-scale(-1);
+$x-sm-size: modular-scale(0);
+$sm-size: modular-scale(1);
+$med-size: modular-scale(2);
+$large-size: modular-scale(3);
+$x-large-size: modular-scale(4);
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: $large-size;
+  line-height: $med-size;
+}
+
+h2 {
+  font-size: $med-size;
+}
+
+h3 {
+  font-size: $sm-size;
+}
+
+p {
+  font-size: $x-sm-size;
+  line-height: $sm-size;
+}
+
+.highlight {
+  color: lighten($red, 30%);
+}
+
+.description {
+  color: lighten($green, 30%);
+  font-size: $xx-sm-size;
+}
+
+li {
+  margin: $x-sm-size 0;
+}
 
 /* Styles */
 body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4em;
-  color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
+  font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: $highlight;
+  background-color: $dark-black;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -17,15 +67,46 @@ body {
   font-weight: 300;
 }
 
-td {
-  padding: 12px;
+textarea:focus, input:focus{
+  outline: none;
 }
 
-h2 {
-  color: $vin-blue;
+.layout {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  .left-column {
+    padding: $sm-size;
+    flex: 1 20%;
+  }
+
+  .main-body {
+    background-color: $dark-black;
+    margin-left: 2.5%;
+    padding: $sm-size;
+    flex: 1 70%;
+
+
+    input {
+      display: inline-block;
+      border: none;
+      background-color: inherit;
+      width: 90%;
+      color: #ffffff;
+      font-size: $x-sm-size;
+      padding: $xx-sm-size;
+    }
+  }
 }
 
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
+.menu {
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
+
+
+
