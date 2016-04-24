@@ -7,26 +7,36 @@
 <body>
 	<h1>client</h1>	
 	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.js"></script>
 	<script>
-	  var socket = io();
-	  socket.on('response', function(data){
-		console.log(data)
-	  })
+		var socket = io();
 
-	  function sendAction(type, data){
-	  	socket.emit('action', JSON.stringify({
-	  		action:type,
-	  		data: data
-	  	}));
-	  }
+		var server = Rx.Observable.create(function(observer){
+		  socket.on('response', function(data){
+			observer.onNext(data)
+		  })
+		});
 
-	  var testaction = function(){
-	  	sendAction('attack', {
-	  		  	str: 5
-	  	})
-	  }
+		server.subscribe(function(msg){
+			console.log(msg)
+		})
+
+		function sendAction(type, data){
+			socket.emit('action', JSON.stringify({
+				type:type,
+				data: data
+			}));
+		}
+
+		var testaction = function(){
+			sendAction('attack', {
+				  	str: 5
+			})
+		}
 
 	</script>
 	<button onclick="testaction()">attack</button>
+	<button onclick="sendAction('position', {id:0})" >position</button>
+	<button onclick="sendAction('scan',{id:0})">scan area</button>
 </body>
 </html>
