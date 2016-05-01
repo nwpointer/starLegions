@@ -28,7 +28,7 @@ export default {
   module: {
     loaders: [
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint']},
-      {test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['file']},
+      {test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['url']},
       {test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap']}
     ]
   }
