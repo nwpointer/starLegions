@@ -1,6 +1,24 @@
 import React from 'react';
 import Layout from './Layout';
 
+const ProgressBar = React.createClass({
+  propTypes: {
+    percent: React.PropTypes.string,
+    className: React.PropTypes.string
+  },
+  render() {
+    return (
+      <div className={`progress-bar`}>
+        <div className="container">
+          <div className={`${this.props.className}`} style={{width: this.props.percent}}>
+          </div>
+        </div>
+        <p>{this.props.percent}</p>
+      </div>
+    );
+  }
+});
+
 const CommandInput = React.createClass({
   defaultValue: `Type command...`,
   onInputBlur(e) {
@@ -16,7 +34,13 @@ const CommandInput = React.createClass({
   },
   render() {
     return (
-      <div>&gt;<input ref="command" type="text" onClick={this.onInputBlur} onBlur={this.onInputBlur} defaultValue={this.defaultValue}/></div>
+      <div className="command-input">
+        &gt;<input ref="command"
+                   type="text"
+                   onClick={this.onInputBlur}
+                   onBlur={this.onInputBlur}
+                   defaultValue={this.defaultValue}/>
+      </div>
     );
   }
 });
@@ -47,29 +71,18 @@ const MainBody = React.createClass({
             <li>Mineral Rich Moon</li>
           </ul>
         </div>
-        <p>You see a dark forbidding planet of <span className="highlight">pure evil.</span></p>
-        <div className="description">
-          <p>Your scans show:</p>
-          <ul>
-            <li>An Asteroid belt</li>
-            <li>Mineral Rich Moon</li>
-          </ul>
-        </div>
-        <p>You see a dark forbidding planet of <span className="highlight">pure evil.</span></p>
-        <div className="description">
-          <p>Your scans show:</p>
-          <ul>
-            <li>An Asteroid belt</li>
-            <li>Mineral Rich Moon</li>
-          </ul>
-        </div>
-        <p>You see a dark forbidding planet of <span className="highlight">pure evil.</span></p>
-        <div className="description">
-          <p>Your scans show:</p>
-          <ul>
-            <li>An Asteroid belt</li>
-            <li>Mineral Rich Moon</li>
-          </ul>
+        <div className="card">
+          <h4>Status Report</h4>
+          <div className="two-column">
+            <div className="left">
+              <p>Health</p>
+              <ProgressBar percent="80%" className="health" />
+            </div>
+            <div className="right">
+              <p>Energy</p>
+              <ProgressBar percent="100%" className="energy" />
+            </div>
+          </div>
         </div>
       </div>
       <CommandInput />
@@ -77,15 +90,10 @@ const MainBody = React.createClass({
   }
 });
 
-const LeftColumn = React.createClass({
+const NavBar = React.createClass({
   render() {
     return <div className="menu">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Bridge</a></li>
-        <li><a href="#">Engineering</a></li>
-        <li><a href="#">Profile</a></li>
-      </ul>
+      <h3 className="brand">Star Legions</h3>
     </div>
   }
 });
@@ -93,7 +101,7 @@ const LeftColumn = React.createClass({
 export default React.createClass({
   render() {
     return (
-      <Layout leftColumn={<LeftColumn/>} mainBody={<MainBody/>}></Layout>
+      <Layout navBar={<NavBar/>} mainBody={<MainBody/>}></Layout>
     );
   }
 });
