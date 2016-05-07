@@ -1,0 +1,20 @@
+%card {
+  padding: $xx-sm-size;
+  background-color: $green;
+  color: lighten($green, 80%);
+  margin: $sm-size 0;
+  border: 1px solid lighten($green, 30%);
+  width: 99%;
+
+  h1, h2, h3, h4 {
+    margin: 0;
+  }
+
+  p {
+    font-size: $xx-sm-size;
+  }
+}
+
+.card {
+  @extend %card;
+}
