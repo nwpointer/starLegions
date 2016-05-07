@@ -1,0 +1,40 @@
+h1 {
+  font-size: $large-size;
+  line-height: $med-size;
+  margin: 0;
+}
+
+h2 {
+  font-size: $med-size;
+  margin: 0;
+}
+
+h3 {
+  font-size: $sm-size;
+  margin: 0;
+}
+
+p {
+  font-size: $x-sm-size;
+  line-height: $sm-size;
+}
+
+.highlight {
+  color: $lighten-red;
+}
+
+.description {
+  color: lighten($green, 30%);
+  font-size: $xx-sm-size;
+}
+
+li {
+  margin: $x-sm-size 0;
+}
+
+a {
+  color: #ffffff;
+}
+
+
+

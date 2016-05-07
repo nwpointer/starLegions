@@ -9,11 +9,15 @@ const ProgressBar = React.createClass({
   render() {
     return (
       <div className={`progress-bar`}>
-        <div className="container">
+        <div className="bar">
           <div className={`${this.props.className}`} style={{width: this.props.percent}}>
           </div>
         </div>
-        <p>{this.props.percent}</p>
+        <div className={`percent`}>
+          <p>
+            {this.props.percent}
+          </p>
+        </div>
       </div>
     );
   }
