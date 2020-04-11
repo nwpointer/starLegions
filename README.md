@@ -2,4 +2,4 @@
 
 A space MMORPG with a dash of retro!
 
-![interface](./src/images/screenie.png)
+![interface](./client/src/images/screenie.png)
